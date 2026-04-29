@@ -4,12 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../features/authSlice';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  IoMenu, IoClose, IoSearchOutline, IoGlobeOutline, 
-  IoChevronForward, IoWalletOutline, IoBarChartOutline, 
-  IoSwapHorizontal, IoChevronDown, IoCopyOutline, 
-  IoLogOutOutline, IoCheckmarkCircle, IoSpeedometerOutline,
-  IoListOutline, IoPersonOutline, IoPeopleOutline, IoSettingsOutline
+import {
+  IoMenu, IoClose, IoSearchOutline, IoGlobeOutline,
+  IoChevronForward, IoWalletOutline, IoBarChartOutline,
+  IoSwapHorizontal, IoChevronDown, IoCopyOutline,
+  IoLogOutOutline, IoCheckmarkCircle,
+  IoListOutline, IoPersonOutline, IoPeopleOutline,
 } from 'react-icons/io5';
 import { navStyles as s } from './NavbarStyles';
 import LogoWebp from '../assets/kucoin-logo.webp';
@@ -170,23 +170,17 @@ const Navbar = () => {
 
                       {/* Menu Items */}
                       <div className="py-2 flex flex-col">
-                        <Link to="#" className={s.dropdownItem} onClick={() => setIsDropdownOpen(false)}>
-                          <IoSpeedometerOutline size={18} /> Dashboard
-                        </Link>
-                        <Link to="#" className={s.dropdownItem} onClick={() => setIsDropdownOpen(false)}>
+                        <Link to="/wallet" className={s.dropdownItem} onClick={() => setIsDropdownOpen(false)}>
                           <IoWalletOutline size={18} /> Assets
                         </Link>
-                        <Link to="#" className={s.dropdownItem} onClick={() => setIsDropdownOpen(false)}>
+                        <Link to="/wallet" className={s.dropdownItem} onClick={() => setIsDropdownOpen(false)}>
                           <IoListOutline size={18} /> Orders
                         </Link>
                         <Link to="/account" className={s.dropdownItem} onClick={() => setIsDropdownOpen(false)}>
-                          <IoPersonOutline size={18} /> Account
+                          <IoPersonOutline size={18} /> Account & KYC
                         </Link>
                         <Link to="#" className={s.dropdownItem} onClick={() => setIsDropdownOpen(false)}>
                           <IoPeopleOutline size={18} /> Referral
-                        </Link>
-                        <Link to="#" className={s.dropdownItem} onClick={() => setIsDropdownOpen(false)}>
-                          <IoSettingsOutline size={18} /> Settings
                         </Link>
                       </div>
 
@@ -283,11 +277,18 @@ const Navbar = () => {
                     icon={<IoSwapHorizontal />} 
                   />
                   {user && (
-                    <MobileLink 
-                      onClick={() => handleNav('/account')} 
-                      label="Account & KYC" 
-                      icon={<IoPersonOutline />} 
-                    />
+                    <>
+                      <MobileLink
+                        onClick={() => handleNav('/wallet')}
+                        label="Assets & Orders"
+                        icon={<IoWalletOutline />}
+                      />
+                      <MobileLink
+                        onClick={() => handleNav('/account')}
+                        label="Account & KYC"
+                        icon={<IoPersonOutline />}
+                      />
+                    </>
                   )}
                 </div>
 

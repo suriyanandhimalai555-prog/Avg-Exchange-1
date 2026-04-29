@@ -6,7 +6,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Markets from './pages/Markets'; 
 import Trade from './pages/Trade'; 
-import Account from './pages/Account'; // <--- Import Account Page
+import Account from './pages/Account';
+import Wallet from './pages/Wallet';
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
@@ -26,10 +27,13 @@ function App() {
             <Route path="/markets" element={<Markets />} />
             <Route path="/trade" element={<Trade />} /> 
             
-            {/* New Account Route */}
-            <Route 
-              path="/account" 
-              element={user ? <Account /> : <Navigate to="/login" />} 
+            <Route
+              path="/wallet"
+              element={user ? <Wallet /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/account"
+              element={user ? <Account /> : <Navigate to="/login" />}
             />
             
             <Route 
