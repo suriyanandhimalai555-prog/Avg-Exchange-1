@@ -154,7 +154,7 @@ async function runTests() {
     `expected ${expectedBTC}, got ${bobBTC}`);
   ok(`Bob received ${PRICE * QTY} USDT`, Math.abs(bobUSDT - PRICE * QTY) < 0.0001,
     `expected ${PRICE * QTY}, got ${bobUSDT}`);
-
+ 
   // ── 7. Order history ───────────────────────────────────────────────────────
   console.log('\n7. Order & trade history');
 
